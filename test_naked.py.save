@@ -1,0 +1,35 @@
+from naked.py import *
+
+print("Asteroid worker test")
+print("----------")
+print("Testing function: \"sort_ast_by_pass_dist\"")
+# Testing passing empty asteroids list
+print("Empty asteroids list [] -->")
+assert sort_ast_by_pass_dist([]) == []
+print("OK")
+print("----------")
+
+# Testing if the sorting by distance of the list is done properly
+print("Actual list good data, checking if sorting is correct -->")
+list_unsorted = [['(2001 UP)', 'http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3092390', 0.019, 0.043, 1634131860, '2021-10-13 13:31:00', '2021-10-13 16:31:00', 64502, 48658232.921, '3092390'], ['(2008 SY150)', 'http://ssd.jpl.nasa.gov/sbdb.cgi?>
+list_sorted_by_dist = [['(2021 TX10)', 'http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=54208049', 0.007, 0.017, 1634126280, '2021-10-13 11:58:00', '2021-10-13 14:58:00', 31032, 942082.384, '54208049'], ['(2021 TO)', 'http://ssd.jpl.nasa.gov/sbdb>
+assert sort_ast_by_pass_dist(list_unsorted) == list_sorted_by_dist
+print("OK")
+print("----------")
+
+# Testing when providing list with elements of various index length
+print("Data with various index length -->")
+list_unsorted_various_index = [['(2001 UP)', 'http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3092390', 0.019, 0.043, 1634131860, '2021-10-13 13:31:00', '2021-10-13 16:31:00', 64502, 48658232.921], ['(2008 SY150)', 'http://ssd.jpl.nasa.gov/sbdb.c>
+assert sort_ast_by_pass_dist(list_unsorted_various_index) == []
+print("OK")
+print("----------")
+
+# Testing when providing list with a shorter index length then expected
+print("Data with short index length -->")
+list_unsorted_index_short = [['(2001 UP)', 'http://ssd.jpl.nasa.gov/sbdb.cgi?sstr=3092390', 0.043, 1634131860, '2021-10-13 13:31:00', '2021-10-13 16:31:00', 64502, 48658232.921, '3092390'], ['(2008 SY150)', 'http://ssd.jpl.nasa.gov/sbdb>
+assert sort_ast_by_pass_dist(list_unsorted_index_short) == []
+print("OK")
+print("----------")
+
+print("Asteroid worker test -> ALL OK")
+print("----------------------------------------")
